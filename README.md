@@ -1,7 +1,7 @@
 # 🕵️ Mystery Detective Game
 
 ## Description
-Unravel hidden secrets and solve puzzling cases in **Mystery Detective**! Step into the shoes of a skilled detective, gathering clues, interrogating suspects, and uncovering the truth behind mysterious crimes. Whether you're solving murders, robberies, or disappearances, your wit and intuition will be put to the test.
+As a Reknowned Detective, one da
 
 ## Features
 - 🕵️ **Intriguing Storylines**: Dive into multiple captivating mysteries, each with unique plots and twists.
