@@ -10,14 +10,7 @@ This project was constructed with HTML, CSS and inline Javascript.
 ## Features
 - 📝 **Intriguing Storyline**: Understand your capitor's movtives for taking you, and why he decided to go after you specifically.
 - 🧠 **Puzzles and Riddles**: Solve challenging puzzles and riddles that require both logic and creativity.
-
-## Table of Contents
-- [Installation](#installation)
-- [How to Play](#how-to-play)
-- [Screenshots](#screenshots)
-- [Contributing](#contributing)
-- [License](#license)
-
+- 
 ## Installation
 To play the game locally, follow these steps:
 
