@@ -1,7 +1,8 @@
 # 🕵️ Mystery Detective Game
 
 ## Description
-As a Reknowned Detective, one da
+In this game, you take the role as a Detective. Whilst out on one of your jobs, you are suddently knocked out and kidnapped! You wake up in a room with multiple doors, each containg a puzzle for you to solve, will you escape and 
+figure out who or what has you trapped here, or fail to do so?
 
 ## Features
 - 🕵️ **Intriguing Storylines**: Dive into multiple captivating mysteries, each with unique plots and twists.
