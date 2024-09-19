@@ -8,7 +8,7 @@ figure out who or what has you trapped here, or fail to do so?
 This project was constructed with HTML, CSS and inline Javascript. 
 
 ## Features
-- 🕵️ **Intriguing Storyline**: Understand your capitor's movtives for taking you, and why he decided to go after you specifically.
+- 📝 **Intriguing Storyline**: Understand your capitor's movtives for taking you, and why he decided to go after you specifically.
 - 🧠 **Puzzles and Riddles**: Solve challenging puzzles and riddles that require both logic and creativity.
 
 ## Table of Contents
