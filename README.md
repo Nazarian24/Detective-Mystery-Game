@@ -8,11 +8,8 @@ figure out who or what has you trapped here, or fail to do so?
 This project was constructed with HTML, CSS and inline Javascript. 
 
 ## Features
-- 🕵️ **Intriguing Storylines**: Dive into multiple captivating mysteries, each with unique plots and twists.
-- 🔍 **Clue Collection**: Explore crime scenes and gather vital clues to piece together the puzzle.
+- 🕵️ **Intriguing Storyline**: Understand your capitor's movtives for taking you, and why he decided to go after you specifically.
 - 🧠 **Puzzles and Riddles**: Solve challenging puzzles and riddles that require both logic and creativity.
-- 👥 **Interrogation Mechanism**: Question suspects and witnesses, analyzing their responses to uncover hidden motives.
-- 🗺️ **Expansive Locations**: Explore diverse environments, from gloomy mansions to bustling city streets.
 
 ## Table of Contents
 - [Installation](#installation)
@@ -40,17 +37,3 @@ To play the game locally, follow these steps:
     ```bash
     ./open-html.sh mainmenu.html
     ```
-
-## How to Play
-In **Mystery Detective**, your goal is to solve a series of complex mysteries by using logic, observation, and intuition.
-
-### Step-by-Step Gameplay:
-1. **Investigate**: Explore crime scenes, interact with objects, and gather clues.
-2. **Interrogate**: Speak to suspects and witnesses, paying close attention to their responses.
-3. **Analyze**: Combine the clues you've gathered and use deduction to solve puzzles.
-4. **Accuse**: Once you've gathered enough evidence, accuse the person you believe is guilty and bring them to justice.
-
-Example of command usage:
-```bash
-look at bookshelf
-talk to witness
