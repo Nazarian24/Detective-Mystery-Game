@@ -34,14 +34,11 @@ To play the game locally, follow these steps:
     cd mystery-detective-game
     ```
 
-3. Install dependencies (if applicable):
-    ```bash
-    npm install
-    ```
+3. Make sure you have a default web browser installed.
 
-4. Start the game:
+4. Run the following Bash script to open the game's main menu (mainmenu.html):
     ```bash
-    npm start
+    ./open-html.sh mainmenu.html
     ```
 
 ## How to Play
