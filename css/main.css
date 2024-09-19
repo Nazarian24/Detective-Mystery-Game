@@ -1,0 +1,64 @@
+* {
+padding: 0px;
+margin: 0px;
+box-sizing: border-box;
+}
+
+
+.textbox
+{
+
+color: white;
+padding: 10px;
+margin-top: 25px;
+width: 50%;
+font-size: 1.2em;
+line-height: 40px;
+border: 2px solid black;
+border-radius: 5px 5px;
+margin-left: auto;
+margin-right: auto;
+background-color: rgba(21, 86, 207, 0.8);
+
+
+}
+
+
+
+
+
+
+.outsideinfodump {
+text-align: center;
+}
+
+.door1 {
+margin-left: -109px;
+margin-top: 241px;
+  }
+
+.clear {
+    background-color: #1556CF;
+    color: white;
+    text-align: center;
+    float: right;
+    margin-top: -32px;
+    border: 2px solid black;
+    padding: 5px;
+    border-radius: 2px;
+}
+
+
+.boxbutton {
+    background-color: #1556CF;
+    color: white;
+    text-align: center;
+    float: right;
+    margin-top: -32px;
+    border: 2px solid black;
+    padding: 5px;
+    border-radius: 2px;
+  }
+
+
+}

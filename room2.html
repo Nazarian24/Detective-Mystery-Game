@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8"/>
+  <title> Detective's Case </title>
+
+<link rel="stylesheet" href="css/main.css" />
+
+<style>
+
+  body {
+  background-image: url("images/Room21.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: black;
+
+
+}
+
+  #riddle1 {
+    margin-top: -50px;
+  }
+
+</style>
+
+  <script>
+
+
+  var correct = 0;
+
+function roomComplete()
+{
+	var completion = sessionStorage.getItem("room_complete");
+	completion = completion.split('');
+	completion[1] = "1";
+	completion = completion.join('');
+	sessionStorage.setItem("room_complete", completion);
+	window.location.replace("mainroom.html");
+}
+
+  function correctanswers()
+   {
+     if (document.getElementById('1:2').checked) {
+       correct = correct + 1;
+     }
+     if (document.getElementById('2:1').checked) {
+       correct = correct + 1;
+     }
+     if (document.getElementById('3:1').checked) {
+       correct = correct + 1;
+     }
+
+     if (correct < 3)
+     {
+          document.getElementById("wrong").style.display = "block";
+     } else {
+          document.getElementById("right").style.display = "block";
+     }
+
+	document.getElementById("textbox").style.display = "none";
+	document.getElementById("riddleone").style.display = "none";
+	document.getElementById("riddletwo").style.display = "none";
+	document.getElementById("riddlethree").style.display = "none";
+
+
+     return false;
+  }
+
+    function cleartext()
+    {
+  document.getElementById("textbox").style.display = "none";
+
+  return false;
+
+    }
+
+    function choose ()
+    {
+document.getElementById("newtext").style.display = "block";
+document.getElementById("clear").style.display = "none";
+document.getElementById("riddle1").style.display = "inline";
+
+
+return false;
+    }
+
+    function riddleq1 ()
+    {
+
+document.getElementById("firstriddle").style.display = "inline";
+document.getElementById("riddle1").style.display = "none";
+document.getElementById("choices1").style.display = "inline";
+document.getElementById("riddleone").style.display = "block";
+//alert("The answer is option 2");
+return false;
+    }
+
+function riddleq2()
+{
+document.getElementById("choose2").style.display = "none";
+document.getElementById("riddletwo").style.display = "block";
+//alert("The answer is option 1");
+return false;
+}
+
+
+function riddleq3()
+{
+document.getElementById("choose3").style.display = "none";
+document.getElementById("riddlethree").style.display = "block";
+document.getElementById("choices3").style.display = "inline";
+//alert("The answer is option 1");
+return false;
+}
+
+function endroom2(){
+	if (document.getElementById("room2final").value.toLowerCase() == "under the chair"){
+		document.getElementById("right").style.display = "none";
+		document.getElementById("room2end").style.display = "block";
+	}else {
+		document.getElementById("right").style.display = "none";
+		document.getElementById("wrong").style.display = "block";
+	}
+
+	return false;
+}
+
+  </script>
+
+  </head>
+
+  <body>
+
+<div id = 'textbox' class = 'textbox'>
+
+
+<p> You walk into a mostly empty room. In the room there is a chair, table and lamp. On the table is a piece of paper, a pencil, an eraser. Along with a fax machine. A voice over the intercom says, please sit down in the chair.” You sit down in the chair and start reading the piece of paper. </p>
+
+<form id = 'clear' name = 'clear' onsubmit = 'return choose()'> <p> <button type='submit' class = 'boxbutton' > Continue </button> </p> </form>
+
+<p id = 'newtext' style = 'display: none;'> You look at the piece of paper and see the following: There are three murder cases, I want to make sure that you aren't completely inept. So, solve them. </p>
+
+<form id = 'riddle1' name = 'riddle1' onsubmit = 'return riddleq1()' style = 'margin: 0px; display: none;'> <p> <button type='submit' class = 'boxbutton' > Case 1 </button> </p> </form>
+
+</div>
+
+
+
+<div id = 'riddleone' style = 'display: none;' class = 'textbox'>
+
+
+<p id = 'firstriddle' style = 'display: none;'> Case 1: A man <span style = "color: red;">under </span> a lot of anger, murders his wife with a knife, leaving no trace and no witnesses. He returns home. An hour later the police call to tell him that his wife has been murdered and to come to the scene of the crime straight away. As soon as he arrives, he is arrested. How did the police know he did it?
+  <br>
+  <br>
+  <form onsubmit="return riddleq2()" style = 'display: none;' id = 'choices1'>
+  <input type ="radio" id ="1:1" name ="question" value ="1:1" /> Option #1: Because he was the last person near her.  <br>
+   <input type ="radio" id ="1:2" name ="question" value ="1:2"/> Option #2: The police didn't tell the man where the crime scene was. <br>
+ <input type ="radio" id ="1:3" name ="question" value ="1:3" required/> Option #3: He looked Guilty at the Crime Scene.
+
+<button type = 'submit' class = 'boxbutton' value = 'Process Form' id = 'choose2'> Case 2 </button> </form>
+
+</p>
+
+</div>
+
+
+
+<div id ='riddletwo' style = 'display: none;' class = 'textbox'>
+<p id = 'secondriddle' > Case 2: A woman named Cathy goes to the police claiming that someone broke into her house and stole her diamond bracelet while she was at work. The policemen investigate the crime scene and notice that <span style = "color: red;"> the </span> bedroom window is broken. There are muddy footprints all across the bedroom floor. However, the room is otherwise neat and organized. The following day, Cathy is arrested for fraud. Why?
+ </p>
+
+
+
+<br>
+<form id = 'choices2' onsubmit="return riddleq3()">
+  <input type ="radio" id ="2:1" name ="question" value ="2:1" /> Option #1: Cathy was convicted of fraud because the bedroom window was broken from the inside. If somebody had broken in from the outside, there would have been glass pieces on the bedroom floor.  <br>
+   <input type ="radio" id ="2:2" name ="question" value ="2:2"/> Option #2: It was in her Bedroom so she must have taken it, not to mention she could have made a fortune selling it. <br>
+ <input type ="radio" id ="2:3" name ="question" value ="2:3" required/> Option #3: When she informed police that the expensive bracelet was taken, she did not seem to have a genuinely sad reaction.
+ <button type='submit' class = 'boxbutton' style = 'margin-top: 10px;' id = 'choose3'> Case 3 </button> </form>
+
+</div>
+
+<div id ="riddlethree" style = 'display:none;' class = 'textbox'>
+  <p id = 'thirdriddle' > Case 3: A man was found dead out in a field of snow. The only tracks that were left was a set of footprints between two slim parallel lines. Who should the police be looking for?  </p>
+  <form id = 'choices3' onsubmit = 'return correctanswers()'>
+<br>
+<input type ="radio" id ="3:1" name ="question" value ="3:1" /> Option #1: A Person in the Wheel <span style = "color: red;"> chair </span> <br>
+<input type ="radio" id ="3:2" name ="question" value ="3:2" /> Option #2: A Person driving a very very small car. <br>
+<input type ="radio" id ="3:3" name ="question" value ="3:3" required /> Option #3: Someone very fast.
+<button type='submit' class = 'boxbutton' style = 'margin-top: 10px;'> Finalize </button> </form>
+
+</div>
+
+
+<div id = 'wrong' style = 'display: none;' class = 'textbox'>
+
+<p> Mhmmm, you didn't get all of the answer right, perhaps I was wrong thinking you were a good Detective. Look <span style = "color: red;"> closer </span> next time </p>
+<button class = "boxbutton" onclick = 'window.location.replace("room2.html")'> Restart </button>
+</div>
+
+
+<div id = 'right' style = 'display: none;' class = 'textbox'>
+  <p> When you input the sheet into the fax machine, the fax machine spit a piece of paper with the words. Where is the key? </p>
+
+<form onsubmit = 'return endroom2()' >
+<input type = 'text' name = 'key location' id = 'room2final' />
+<button type = 'submit' class = 'boxbutton' style = "margin: 0px;" > Check Answer </button>
+</form>
+</div>
+
+<div id = 'room2end' style = 'display: none;' class = 'textbox'>
+<p> You look under the chair and grab the key, it was wrapped in tape and you can now go to the next room. </p>
+<button onclick = 'roomComplete()' class = "boxbutton"> Exit to Main Room </button>
+</div>
+  </body>
+
+
+  </html>

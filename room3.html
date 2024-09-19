@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8"/>
+  <title> Detective's Case </title>
+
+<link rel="stylesheet" href="css/main.css" />
+
+
+<style>
+
+body {
+  background-image: url("images/Room2.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+    background-color: black;
+}
+
+</style>
+
+  <script>
+
+  function roomComplete()
+{
+	var completion = sessionStorage.getItem("room_complete");
+	completion = completion.split('');
+	completion[2] = "1";
+	completion = completion.join('');
+	sessionStorage.setItem("room_complete", completion);
+	window.location.replace("mainroom.html");
+}
+
+
+  function sound(src) {
+		this.sound = document.createElement("audio");
+		this.sound.src = src;
+		this.sound.setAttribute("preload", "auto");
+		this.sound.setAttribute("controls", "none");
+		this.sound.style.display = "none";
+		document.body.appendChild(this.sound);
+		this.play = function(){
+
+			this.sound.currentTime = 0;
+			this.sound.play();
+		}
+		this.stop = function(){
+			this.sound.pause();
+		}
+	}
+
+  function choose()
+  {
+  document.getElementById("newtext").style.display = "block";
+  document.getElementById("continue2").style.display = "block";
+  document.getElementById("chart").style.display = "block";
+  document.getElementById("clear").style.display = "none";
+  //alert("The answer is typewriter");
+
+  return false;
+  }
+
+function playSound(pLetter) {
+	var morse = new sound("sounds/"+ pLetter.toUpperCase() +".wav");
+	morse.sound.playbackRate = 0.71;
+	morse.play();
+}
+
+function checkAnswer() {
+	if (document.getElementById("morseText").value.toLowerCase() == "typewriter"){
+		document.getElementById("correctText").style.display = "block";
+	}else {
+		document.getElementById("tryAgain").style.display = "inline";
+		setTimeout(function(){ document.getElementById("tryAgain").style.display = "none"; }, 8000);
+	}
+	return false;
+}
+
+  function cleartext()
+  {
+document.getElementById("textbox").style.display = "none";
+
+return false;
+
+  }
+
+  </script>
+
+  </head>
+
+  <body>
+
+<div id = 'textbox' style="padding-bottom: 40px;" class='textbox'>
+
+<p> Upon going down another hallway you will turn into a room. That has a nice and cozy desk and chair, with a typewriter. </p>
+
+<form id = 'clear' name = 'clear' onsubmit = 'return choose()'> <p> <button type='submit' style="margin: 0px;" class = 'boxbutton' > Continue </button> </p> </form>
+
+<p id = 'newtext' style = 'display: none;'> You hear a sound, that beeps at weird sand inconsistent periods. On the wall however is a chart that translates between English and Morse code, it becomes obvious that listening for the beeps and translating them will tell you the location of the key. </p>
+
+<form id = 'continue2' name = 'continue2' onsubmit = 'return cleartext()'> <p> <button type='submit' class = 'boxbutton' style = 'display: none;'> Close </button> </p> </form>
+
+</div>
+
+<div class='textbox' id="chart" style="display: none; text-align: center;">
+  <p> The Table </p>
+	<img id="chartImage" width = "100%" src="images/moosecode.jpg" style="margin: auto;" alt="a chart to convert morse code to english"/>
+
+	<table style="width:100%;">
+		<tr>
+			<td><button onclick="playSound('t')" class="boxbutton" style="float: none; margin: 0px; width: 90%; height: 50px;">Sound 1</button></td>
+			<td><button onclick="playSound('y')" class="boxbutton" style="float: none; margin: 0px; width: 90%; height: 50px;">Sound 2</button></td>
+			<td><button onclick="playSound('p')" class="boxbutton" style="float: none; margin: 0px; width: 90%; height: 50px;">Sound 3</button></td>
+			<td><button onclick="playSound('e')" class="boxbutton" style="float: none; margin: 0px; width: 90%; height: 50px;">Sound 4</button></td>
+			<td><button onclick="playSound('w')" class="boxbutton" style="float: none; margin: 0px; width: 90%; height: 50px;">Sound 5</button></td>
+			<td><button onclick="playSound('r')" class="boxbutton" style="float: none; margin: 0px; width: 90%; height: 50px;">Sound 6</button></td>
+			<td><button onclick="playSound('i')" class="boxbutton" style="float: none; margin: 0px; width: 90%; height: 50px;">Sound 7</button></td>
+			<td><button onclick="playSound('t')" class="boxbutton" style="float: none; margin: 0px; width: 90%; height: 50px;">Sound 8</button></td>
+			<td><button onclick="playSound('e')" class="boxbutton" style="float: none; margin: 0px; width: 90%; height: 50px;">Sound 9</button></td>
+			<td><button onclick="playSound('r')" class="boxbutton" style="float: none; margin: 0px; width: 90%; height: 50px;">Sound 10</button></td>
+		</tr>
+	</table>
+
+	<form style="" width = "40%" onsubmit="return checkAnswer()">
+		<p>Where is the key?</p>
+		<input id="morseText" type="text"/>
+		<button type="submit" style="margin:5px; float: none;" class="boxbutton">Check Answer</button>
+	</form>
+	<p id="tryAgain" style="display:none;"> You hear a voice over the intercome, saying "That is incorrect, guess again. Maybe this time you could try getting it right.""</p>
+</div>
+
+<div class='textbox' id="correctText" style="display: none;">
+	<p>You hear a voice over the intercom, saying "Looks like your one step closer detective."</p>
+	<button onclick = 'roomComplete()' class = "boxbutton"> Exit to Main Room </button>
+</div>
+
+  </body>
+
+
+  </html>

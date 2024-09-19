@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8"/>
+  <title> Detective's Case </title>
+
+<link rel="stylesheet" href="css/main.css" />
+
+<style>
+
+ body {
+   background-color: black;
+background-image: url("images/escaperoomdoors1.jpg");
+background-repeat: no-repeat;
+background-size: cover;
+  }
+
+h1 {
+  text-align: center;
+  margin-top: 10px;
+}
+
+button {
+  background-color: rgba(0, 0, 0, 0);
+  color: black;
+  text-align: center;
+  float: right;
+  border: 1px solid black;
+  border-radius: 10px 10px;
+  padding: 5px;
+  border-radius: 5px 5px;
+
+
+
+}
+
+
+#buttontext
+{
+margin-top: -32px;
+background-color: #1556CF;
+color: white;
+text-align: center;
+float: right;
+border: 2px solid black;
+padding: 5px;
+border-radius: 2px;
+
+}
+
+
+#roombuttons {
+  font-size: 1.2em;
+  width : 100%;
+  margin-top: 21.2%;
+}
+
+#roombuttons button {
+  font-size: 1.2em;
+  color: red;
+
+}
+
+
+
+</style>
+
+
+
+
+  <script>
+
+
+
+
+  function cleartext()
+  {
+document.getElementById("textbox").style.display = "none";
+document.getElementById("roombuttons").style.display = "block";
+return false;
+  }
+
+document.addEventListener("DOMContentLoaded", function() {
+	if (sessionStorage.getItem("room_complete").includes("1")){
+		cleartext();
+	}
+});
+
+name = sessionStorage.getItem("name");
+
+
+
+document.write("<h1> The Main Room</h1>");
+
+document.write("<div class = 'textbox' id = 'textbox'>");
+
+document.write("<p> Welcome Detective, " + name  + ". You're probably wondering why you're here. I could tell you, but I don't think you should deserve to know. After all you're Minneapolis's best detective. Shouldn't you know? Or is your title falsely attributed to you? Regardless I will let you know what you will be doing. Oh, I should introduce my self. My name, well you can call me the Master, and as you can see there are six doors infront of you, one of the doors will lead to your exit, however it is locked by five seperate locks. To unlock the door you must enter the other rooms and obtain a key. Once you have collected the five keys, you can unlock the door and leave. Sounds pretty simple right?, In actually each door has a challenge to them, and if you can't complete them, well then I guess you'll die here. Enjoy Detective and embrace the scenery, for it may be one of the last things you see. Cheers. </p>")
+
+document.write ("<form id = 'clear' name = 'clear' onsubmit = 'return cleartext()'> <p> <button type='submit' id = 'buttontext'> Close </button> </p> </form>");
+document.write("</div>");
+
+document.write("<div id = 'roombuttons' style = 'display: none;'>");
+var funky = sessionStorage.getItem("room_complete");
+var count = [7.3, 24 , 57.5 , 74 , 91];
+for (var i = 0; i < funky.length; i++)
+{
+
+  if (funky[i] == 0) {
+
+document.write("<button onclick = \"window.location.replace('room" + (i + 1) + ".html')\" style = 'position: fixed; left: " + count[i]  + "%;'>" + (i + 1) + " </button>");
+
+  }
+
+}
+if (!sessionStorage.getItem("room_complete").includes("0")){
+	//
+	document.write("<button onclick = \"window.location.replace('endroom.html')\" style = 'position: fixed; left:40.8%;'>?</button>");
+}
+
+document.write("</div>");
+  </script>
+
+  </head>
+
+  <body>
+
+
+
+  </body>
+
+
+  </html>

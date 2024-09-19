@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8"/>
+  <title> Detective's Case </title>
+
+<link rel="stylesheet" href="css/main.css" />
+
+<style>
+
+  body {
+
+  background-image: url("images/startscreen2.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: black;
+  font-family: Helvetica, sans-serif;
+
+  }
+
+  h1 {
+color: #C02114;
+text-align: center;
+font-size: 4em;
+margin-top: 50px;
+  }
+
+h2 {
+  color: #C02114;
+  text-align: center;
+  font-size: 2em;
+}
+
+h3 {
+  color: #C02114;
+  text-align: center;
+  font-size: 2em;
+  margin-top: 10px;
+
+
+}
+
+p {
+  text-align: center;
+  margin-top: 10px;
+color: white;
+}
+
+
+
+button {
+color: #C02114;
+background-color: black;
+transform: translateY(15px);
+}
+
+</style>
+
+  <script>
+
+
+
+    function collectusername() {
+var textInp = document.name1.username.value;
+sessionStorage.setItem('name', textInp);
+window.location.replace("infodump.html");
+return false;
+
+    }
+
+sessionStorage.setItem("room_complete", "00000");
+
+
+  </script>
+
+  </head>
+
+  <body>
+
+  <h1> The Detective's Case </h1>
+
+<h2> Come on Detective... Let's have some fun</h2>
+
+<form id = "name1" name = "name1" onsubmit="return collectusername()">
+
+  <p>
+<label for="username"> Detective: </label>
+<input type="text" id="username" name="username" required />
+  <p>
+
+<p>
+<button type="submit"> Start The Game  </button>
+</p>
+
+
+</form>
+
+
+  </body>
+
+
+  </html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8"/>
+  <title> Detective's Case </title>
+
+<link rel="stylesheet" href="css/main.css" />
+
+
+<style>
+
+body {
+  background-image: url("images/Room5.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+    background-color: black;
+}
+
+</style>
+
+  <script>
+
+  function roomComplete()
+{
+	var completion = sessionStorage.getItem("room_complete");
+	completion = completion.split('');
+	completion[4] = "1";
+	completion = completion.join('');
+	sessionStorage.setItem("room_complete", completion);
+	window.location.replace("mainroom.html");
+}
+
+function showWeapons(){
+	document.getElementById("weaponsDiv").style.display = "block";
+}
+
+ function checkAnswer() {
+	if (document.getElementById("case1").value == "gun" && document.getElementById("case2").value == "rope" && document.getElementById("case3").value == "poison" && document.getElementById("case4").value == "gun" && document.getElementById("case5").value == "bat"){
+		document.getElementById("correctText").style.display = "block";
+	}else {
+		document.getElementById("tryAgain").style.display = "inline";
+		setTimeout(function(){ document.getElementById("tryAgain").style.display = "none"; }, 8001);
+	}
+	return false;
+ }
+
+
+  </script>
+
+  </head>
+
+  <body>
+
+<div id = 'textbox' style="padding-bottom: 40px;" class='textbox'>
+
+<p>The room is empty, it looks similar to an empty prison cell. Inside will be a bench with a piece of paper.  Along with multiple weapons covered in blood. Along with a fax machine. The sheet of paper details the murders of multiple people. A text box will appear describing the objective. In this room, the player is given descriptions of murders and must match accordingly to the murder weapon. From there every description will be accompanied by a handful of options to choose for the murder weapons. </p>
+
+<button onclick='showWeapons()' style="margin: 0px;" class = 'boxbutton' > Continue </button>
+</div>
+
+<div class='textbox' id="weaponsDiv" style="display: none;">
+	<label for="case1">A young woman is found will a small hole directly in her head. What was the murder weapon used to kill?</label><br>
+<!-- The answer is gun-->
+	<select name="case1" id="case1">
+		<option value="">- Select a Weapon -</option>
+		<option value="gun">Gun</option>
+		<option value="bat">Bat with barbed wire</option>
+		<option value="poison">Poison</option>
+		<option value="knife">Knife</option>
+		<option value="rope">Rope</option>
+	</select>
+	<br><br>
+
+	<label for="case2">An older man found seems to have bruises around his neck. On top of that, his hands and feet have turned to a blue tint. What weapon would have done this?</label><br>
+<!-- The answer is Rope -->
+	<select name="case2" id="case2">
+		<option value="">- Select a Weapon -</option>
+		<option value="gun">Gun</option>
+		<option value="bat">Bat with barbed wire</option>
+		<option value="poison">Poison</option>
+		<option value="knife">Knife</option>
+		<option value="rope">Rope</option>
+	</select>
+	<br><br>
+
+	<label for="case3"> In an autopsy performed by medical specialists. It was found that a victim had scarring on the liver. Prior to the victim’s death, they was lasted reported speaking to their partner. Who apparently reported that they had trouble breathing prior to their death. What weapon was used to kill?</label>
+<br>
+<!-- The answer is Poison -->
+	<select name="case3" id="case3">
+		<option value="">- Select a Weapon -</option>
+		<option value="gun">Gun</option>
+		<option value="bat">Bat with barbed wire</option>
+		<option value="poison">Poison</option>
+		<option value="knife">Knife</option>
+		<option value="rope">Rope</option>
+	</select>
+	<br><br>
+
+	<label for="case4">A man is found in a baseball field lying dead on the floor. The man had multiples holes inside of him, What was the murder weapon used?</label><br>
+<!-- The answer is gun-->
+	<select name="case4" id="case4">
+		<option value="">- Select a Weapon -</option>
+		<option value="gun">Gun</option>
+		<option value="bat">Bat with barbed wire</option>
+		<option value="poison">Poison</option>
+		<option value="knife">Knife</option>
+		<option value="rope">Rope</option>
+	</select>
+	<br><br>
+
+	<label for="case5">A man found dead in an alley, had multiple bruises and cuts on his body. What was the weapon used?</label><br>
+<!-- The answer is baseball with barbed wire-->
+	<select name="case5" id="case5">
+		<option value="">- Select a Weapon -</option>
+		<option value="gun">Gun</option>
+		<option value="bat">Bat with barbed wire</option>
+		<option value="poison">Poison</option>
+		<option value="knife">Knife</option>
+		<option value="rope">Rope</option>
+	</select>
+
+	<button onclick = 'checkAnswer()' style="margin:0px;" class = "boxbutton"> Check Answers </button>
+	<br>
+	<p id="tryAgain" style="display:none;">I can't believe you got that wrong, do it again.</p>
+</div>
+
+<div class='textbox' id="correctText" style="display: none;">
+	<p>You hear a voice from an intercom saying "Not to shabby detective, take your key and leave."</p>
+	<button onclick = 'roomComplete()' class = "boxbutton"> Exit to Main Room </button>
+</div>
+
+  </body>
+
+
+  </html>

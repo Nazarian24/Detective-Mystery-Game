@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8"/>
+  <title> Detective's Case </title>
+
+<link rel="stylesheet" href="css/main.css" />
+
+
+<style>
+
+body {
+  background-image:url("images/endroom.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: black;
+
+
+}
+
+h1 {
+  color: white;
+  text-align: center;
+  margin-top: 15px;
+}
+
+
+</style>
+
+
+
+
+  <script>
+
+function finish() {
+  window.location.replace("mainmenu.html");
+}
+
+
+
+
+
+    function continue1() {
+
+    document.getElementById("continue").style.display = "none";
+    document.getElementById("textbox2").style.display = "block";
+
+
+    return false;
+    }
+
+
+
+function moreinfo() {
+  if (document.getElementById("1:1").checked) {
+document.getElementById("moreinfos").style.display = "block";
+  }
+
+  if (document.getElementById("1:2").checked) {
+    document.getElementById("choose2").style.display = "none";
+    document.getElementById("textbox").style.display = "none";
+    document.getElementById("textbox2").style.display = "none";
+document.getElementById("leaving").style.display ="block";
+  }
+
+return false;
+}
+
+function end() {
+document.getElementById("choose2").style.display = "none";
+document.getElementById("textbox").style.display = "none";
+document.getElementById("textbox2").style.display = "none";
+document.getElementById("moreinfos").style.display = "none";
+document.getElementById("lasttext").style.display = "block";
+return false;
+}
+
+
+var name = sessionStorage.getItem("name");
+document.write("<h1> The End</h1>")
+document.write("<div id = 'textbox' class = 'textbox'>");
+document.write("<p> You open the door and find yourself in a small room. You hear a voice ''Well, well detective " + name + ". You've beaten my puzzles I suppose you are free now.'' </p>");
+document.write("<form id = 'continue' onsubmit = 'return continue1()' <p> <button type = 'submit' class = boxbutton > Continue </button> </p> </form>");
+document.write("</div>");
+
+
+
+  </script>
+
+  </head>
+
+  <body>
+
+
+
+<div class = 'textbox' id = "textbox2" style = 'display: none;' >
+
+<p> Is there anything you would like to say before you go? </p>
+
+<form onsubmit="return moreinfo()"  id = 'choices1'>
+  <input type ="radio" id ="1:1" name ="question" value ="1:1" /> Why am I here?
+  <br>
+  <input type ="radio" id ="1:2" name ="question" value ="1:2" required /> Nothing.
+<button type = 'submit' class = 'boxbutton' value = 'Process Form' id = 'choose2'> Continue </button>
+</form>
+</div>
+
+<div class ="textbox" id = "moreinfos" style = "display: none;">
+
+<p> "I don't like cops, they failed to find out the person who murdered my sister. I kept asking them to keep investigating, but I was turned away. So, when I heard your reputation as the best detective in the city. I wanted to ask you, but I wanted to make sure you were different from the rest. So I put you through my puzzles. To see if you were competent. I suppose you must be if you solved my challenges. I hope you start investigating the case when you leave. " </p>
+<button type = 'submit' class = 'boxbutton' value = 'Process Form' id = 'choose3' onclick = "return end()"> Continue </button>
+</div>
+
+
+
+<div class = "textbox" id = "lasttext" style = "display: none;">
+
+<p> You exit the room and appear on the outside, it looks like some time has passed, you return home to sleep. But you have a hard time sleeping, because you eagerly await to start your brand new case about the Master's sister, which may be one of the most perplexing ones yet.  </p>
+<button type = 'submit' class = 'boxbutton' value = 'Process Form' id = 'finish' onclick = "return finish()"> End the Game </button>
+</div>
+
+
+<div class = "textbox" id = "leaving" style = "display: none;">
+
+<p> You say nothing, then you proceed to leave the room and exit out the door. Sometime has passed, you go to inform the nearest police station. Then you go home to sleep, you feel restless at night, because you want to solve the case of who the Master was. You are so determined because you want to incite personal revenge. </p>
+<button type = 'submit' class = 'boxbutton' value = 'Process Form' id = 'finish' onclick = "return finish()"> End the Game </button>
+</div>
+
+  </body>
+
+
+  </html>

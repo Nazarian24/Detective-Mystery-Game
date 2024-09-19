@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8"/>
+  <title> Detective's Case </title>
+
+<link rel="stylesheet" href="css/main.css" />
+
+
+<style>
+
+body {
+  background-image: url("images/Room4.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+    background-color: black;
+}
+
+img {
+  width: 100%;
+}
+
+</style>
+
+  <script>
+
+  function roomComplete()
+{
+	var completion = sessionStorage.getItem("room_complete");
+	completion = completion.split('');
+	completion[3] = "1";
+	completion = completion.join('');
+	sessionStorage.setItem("room_complete", completion);
+	window.location.replace("mainroom.html");
+}
+
+ function showMap() {
+	document.getElementById("mapDiv").style.display = "block";
+//  alert("The answer is Matt");
+ }
+
+ function checkAnswer() {
+	if (document.getElementById("morseText").value.toLowerCase() == "matt"){
+		document.getElementById("correctText").style.display = "block";
+	}else {
+		document.getElementById("tryAgain").style.display = "inline";
+		setTimeout(function(){ document.getElementById("tryAgain").style.display = "none"; }, 8001);
+	}
+	return false;
+ }
+
+
+  </script>
+
+  </head>
+
+  <body>
+
+<div id = 'textbox' style="padding-bottom: 40px;" class='textbox'>
+
+<p>  Upon opening the door and going down a hallway, and opening the door. You enter the room, only to find it is very similar to the interrogation room from the agency. On the table of the room is a map of an unknown area. Below the map is a slip of paper with the message. “The map has points on it. They correlate to recent murders in the area. They were all killed by the same Person whose name is unknown. Find out the killer’s name and get the key”. </p>
+
+<button onclick='showMap()' style="margin: 0px;" class = 'boxbutton' > Continue </button>
+</div>
+
+<div class='textbox' id="mapDiv" style="display: none;">
+	<p>The Map.</p>
+	<img src="images/murdermap.jpg" alt="A map with some points marked on it. Spelling out MATT">
+
+	<form style="" width = "40%" onsubmit="return checkAnswer()">
+		<p>Whats the name of the criminal?</p>
+		<input id="morseText" type="text"/>
+		<button type="submit" style="margin:5px; float: none;" class="boxbutton">Check Answer</button>
+	</form>
+	<p style="display:none;" id="tryAgain">Wow you really suck at this, maybe guess again with a better answer.</p>
+</div>
+
+<div class='textbox' id="correctText" style="display: none;">
+	<p>A hatch opens from the top of the room and the key drops down.</p>
+	<button onclick = 'roomComplete()' class = "boxbutton"> Exit to Main Room </button>
+</div>
+
+  </body>
+
+
+  </html>

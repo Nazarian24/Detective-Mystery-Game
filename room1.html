@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8"/>
+  <title> Detective's Case </title>
+
+
+<link rel="stylesheet" href="css/main.css" />
+
+<style>
+
+  body {
+ background-image: url("images/detectivesoffice.jpg");
+ background-repeat: no-repeat;
+ background-size: cover;
+  background-color: black;
+
+
+   }
+
+
+ table {
+   text-align: center;
+ }
+
+
+
+#safe {
+  position: fixed;
+  left: 25%;
+  top: 50%;
+}
+
+
+#floormat {
+  position: fixed;
+  left: 50%;
+  top: 95%;
+}
+
+#evidence {
+	position: fixed;
+	left: 52.5%;
+	top: 55%;
+}
+
+table {
+	width: 100%
+}
+
+</style>
+  <script>
+
+var key = false;
+
+
+  function cleartext()
+  {
+document.getElementById("textbox").style.display = "none";
+document.getElementById("floormat").style.display = "inline";
+document.getElementById("safe").style.display = "inline";
+document.getElementById("evidence").style.display = "inline";
+return false;
+  }
+
+
+
+function choose()
+{
+document.getElementById("newtext").style.display = "block";
+document.getElementById("clear2").style.display = "block";
+document.getElementById("clear").style.display = "none";
+return false;
+}
+
+
+function safes()
+{
+	document.getElementById("floormat").style.display = "none";
+document.getElementById("safe").style.display = "none";
+document.getElementById("evidence").style.display = "none";
+	if (!key)
+	{
+		document.getElementById("nokey").style.display = "block";
+	}
+	else if (key){
+		document.getElementById("key").style.display = "block";
+	}
+
+	return false;
+  }
+
+
+function floormate() {
+  document.getElementById("floormats").style.display = "block";
+  	document.getElementById("floormat").style.display = "none";
+document.getElementById("safe").style.display = "none";
+document.getElementById("evidence").style.display = "none";
+  return false;
+}
+
+function evidence() {
+	document.getElementById("table").style.display = "block";
+	document.getElementById("floormat").style.display = "none";
+document.getElementById("safe").style.display = "none";
+document.getElementById("evidence").style.display = "none";
+//alert("The answer is C-05");
+}
+
+function closeTable() {
+document.getElementById("table").style.display = "none";
+	document.getElementById("floormat").style.display = "inline";
+document.getElementById("safe").style.display = "inline";
+document.getElementById("evidence").style.display = "inline";
+}
+
+function closeKey() {
+		document.getElementById("floormat").style.display = "inline";
+document.getElementById("safe").style.display = "inline";
+document.getElementById("evidence").style.display = "inline";
+document.getElementById("nokey").style.display = "none";
+}
+
+function closeMat() {
+		document.getElementById("floormat").style.display = "inline";
+document.getElementById("safe").style.display = "inline";
+document.getElementById("evidence").style.display = "inline";
+document.getElementById("floormats").style.display = "none";
+}
+
+ function checkAnswer() {
+	if (document.getElementById("evidenceText").value.toLowerCase() == "c-05"){
+		document.getElementById("correctText").style.display = "block";
+		document.getElementById("tryAgain").style.display = "none";
+		key = true;
+	}else {
+		document.getElementById("tryAgain").style.display = "inline";
+		setTimeout(function(){ document.getElementById("tryAgain").style.display = "none"; }, 7999);
+	}
+	return false;
+ }
+
+   function roomComplete()
+{
+	var completion = sessionStorage.getItem("room_complete");
+	completion = completion.split('');
+	completion[0] = "1";
+	completion = completion.join('');
+	sessionStorage.setItem("room_complete", completion);
+	window.location.replace("mainroom.html");
+}
+
+  </script>
+
+  </head>
+
+  <body>
+
+<div id = 'textbox' class="textbox">
+
+<p> You open one of the doors, and enter into an empty hallway, then you see a door. The door looks like your office door, you enter it and to your shock, it looks like an exact repliclia of your office. You hear a voice from an intercom, ''Recongnize this place? You pigs are so messey and it was easy to get the blueprints to your office.''  </p>
+
+<form id = 'clear' name = 'clear' onsubmit = 'return choose()'> <p> <button type='submit' class = 'boxbutton' > Continue </button> </p> </form>
+
+<p id = 'newtext' style = 'display: none;'> Anyway I should remind you that you need to get a key from this room, now go and find one.  </p>
+
+<form id = 'clear2' name = 'clear2' onsubmit = 'return cleartext()' style = 'display: none;' > <p> <button type='submit' class = 'boxbutton' > Close </button> </p> </form>
+
+</div>
+
+<form id = 'safe' name = 'safe' style = 'display: none;' onsubmit = "return safes()" > <p> <button type = 'submit' class = 'boxbutton' > Safe </button> </p> </form>
+
+
+<form id = 'floormat' name = 'floormat' style = 'display: none;' onsubmit = "return floormate()" > <p> <button type = 'submit' class = "boxbutton" > Floormat </button> </p> </form>
+
+<button style="display:none;" id = "evidence" onclick = 'evidence()' class = "boxbutton" > Evidence </button>
+
+<div class="textbox" style="display:none;" id = "floormats">
+<p> You usually keep your key under your floormat in your office, but it is conspicuously missing. </p>
+<button onclick = 'closeMat()' class = "boxbutton" > Close </button>
+</div>
+
+<div class="textbox" style="display:none;" id = "key">
+<p> You open the safe and acquire the key.</p>
+<button onclick = 'roomComplete()' class = "boxbutton" > Exit to Main Room </button>
+</div>
+
+<div class="textbox" style="display:none;" id = "nokey">
+<p> Hmm, maybe if you found something to open this safe with... </p>
+<button onclick = 'closeKey()' class = "boxbutton" > Close </button>
+</div>
+
+<div class="textbox" style="display:none;" id = "table">
+   <table border = 2>
+	<tr>
+	<th colspan = 3> Evidence Storage </th>
+	</tr>
+
+	<tr>
+	<th> Name </th >
+	<th> Crime </th>
+	<th> Box No. </th>
+	</tr>
+
+	<tr>
+	<td> XXXXXXXXXX </td>
+	<td> XXXXXXXXXX </td>
+	<td> X-01 </td>
+	</tr>
+
+	<tr>
+	<td> Nathan Harrison </td>
+	<td> Arson </td>
+	<td> H-02 </td>
+	</tr>
+	<tr>
+	<td> John Evans</td>
+	<td> Assault </td>
+	<td> E-03</td>
+	</tr>
+	<tr>
+	<td> XXXXXXXXXX </td>
+	<td> XXXXXXXXXX </td>
+	<td> XXX</td>
+	</tr>
+	<tr>
+	<td> William Clocks </td>
+	<td> Safe Cracking </td>
+	<td> XXX </td>
+	</tr>
+	<tr>
+	<td> XXXXXXXX </td>
+	<td> XXXXXXXX </td>
+	<td> XXX </td>
+	</tr>
+	<tr>
+	<td> Elizabeth </td>
+	<td> Murder Afflilate</td>
+	<td> P-07 </td>
+	</tr>
+	<tr>
+	<td> XXXXXXX </td>
+	<td> XXXXXXX </td>
+	<td> XXXXXXX </td>
+	</tr>
+
+  </table>
+
+  <form onsubmit="return checkAnswer()">
+		<p>What box number should you open?</p>
+		<input id="evidenceText" type="text"/>
+		<button type="submit" style="margin:5px; float: none;" class="boxbutton">Check Answer</button>
+	</form>
+
+	<p style="display:none;" id="tryAgain">That didn't seem to accomplish much</p>
+	<div id="correctText" style="display:none;">
+		<p>You open the box to find a safe cracker.</p>
+		<button id = "closeTable" style = "float: none; width: 50%; margin: 5px auto;" onclick = 'closeTable()' class = "boxbutton" > Close Table </button>
+
+  </div>
+</div>
+
+  </body>
+
+
+  </html>

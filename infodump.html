@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8"/>
+  <title> Detective's Case </title>
+
+<link rel="stylesheet" href="css/main.css" />
+
+  <style>
+
+h1 {
+  text-align: center;
+  margin-top: 40px;
+  color: white;
+}
+
+body {
+  background-image: url("images/infodumpimage2.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+
+  </style>
+
+  <script>
+
+
+    function sound(src) {
+		this.sound = document.createElement("audio");
+		this.sound.src = src;
+		this.sound.setAttribute("preload", "auto");
+		this.sound.setAttribute("controls", "none");
+		this.sound.style.display = "none";
+		document.body.appendChild(this.sound);
+		this.play = function(){
+
+			this.sound.currentTime = 0;
+			this.sound.play();
+		}
+		this.stop = function(){
+			this.sound.pause();
+		}
+	}
+
+
+
+
+function thud ()
+{
+setTimeout(function(){ window.location.replace("mainroom.html"); }, 2100);
+var music = new sound("sounds/body-thud.mp3");
+music.play();
+return false;
+}
+
+
+
+
+name = sessionStorage.getItem("name");
+document.write("<h1> Fri March 9th, 1951, 11:04 PM. Outside the Detective Agency. Minnesota. </h1>");
+
+
+
+document.write("<div class = 'textbox' id = 'textbox'>");
+
+document.write("<p> The year is 1951. Your name is Detective " + name + ".  You're considered one of the best detectives in all of the Minneapolis's History,  with a 100% success rate with cases there hasn't been one criminal you haven't been able to catch. Today you feel tired after working overnight to solve a case, about a murder in the area at Minneapolis Central Library. Exhausted, you exit the agency and start to walk home. However on the way you feel a prescence watching you but you trek on to your home regardless. As you are walking home, you feel the prescence get ever so stronger. To the point where you hear footsteps behind you. You pull out your gun, and call for anyone who is there, but to no response. A few seconds later you hear a low and gravely voice behind you, utter the words,  ''Detective  "+ name +" '' .  You then get hit in the end and fall unconscious. </p>");
+
+document.write ("<form id = 'thudcontinue' name = 'thudcontinue' onsubmit = 'return thud()'> <p> <button type='submit' class = 'boxbutton' > Continue </button> </p> </form>")
+
+document.write("</div>");
+
+  </script>
+
+  </head>
+
+  <body>
+
+
+
+
+  </body>
+
+
+  </html>
