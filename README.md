@@ -28,5 +28,5 @@ To play the game locally, follow these steps:
 
 4. Run the following Bash script to open the game's main menu (mainmenu.html):
     ```bash
-    ./open-html.sh mainmenu.html
+    /open-html.sh mainmenu.html
     ```
