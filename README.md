@@ -16,12 +16,12 @@ To play the game locally, follow these steps:
 
 1. Clone the repository:
     ```bash
-    git clone https://github.com/username/Detective-Mystery-Game.git
+    git clone https://github.com/Spacemanlolxd/Detective-Mystery-Game.git
     ```
 
 2. Navigate to the project directory:
     ```bash
-    cd mystery-detective-game
+    cd Detective-Mystery-Game
     ```
 
 3. Make sure you have a default web browser installed.
